@@ -17,7 +17,7 @@ from metrics import metric_base
 #----------------------------------------------------------------------------
 # Official training configs for StyleGAN, targeted mainly for FFHQ.
 
-if 1:
+if 0:
     desc          = 'sgan'                                                                 # Description string included in result subdir name.
     train         = EasyDict(run_func_name='training.training_loop.training_loop')         # Options for training loop.
     G             = EasyDict(func_name='training.networks_stylegan.G_style')               # Options for generator network.
@@ -81,7 +81,7 @@ if 1:
 #----------------------------------------------------------------------------
 # Official training configs for Progressive GAN, targeted mainly for CelebA-HQ.
 
-if 0:
+if 1:
     desc          = 'pgan'                                                         # Description string included in result subdir name.
     train         = EasyDict(run_func_name='training.training_loop.training_loop') # Options for training loop.
     G             = EasyDict(func_name='training.networks_progan.G_paper')         # Options for generator network.
@@ -98,12 +98,12 @@ if 0:
     tf_config     = {'rnd.np_random_seed': 1000}                                   # Options for tflib.init_tf().
 
     # Dataset (choose one).
-    desc += '-celebahq';            dataset = EasyDict(tfrecord_dir='celebahq'); train.mirror_augment = True
+    #desc += '-celebahq';            dataset = EasyDict(tfrecord_dir='celebahq'); train.mirror_augment = True
     #desc += '-celeba';              dataset = EasyDict(tfrecord_dir='celeba'); train.mirror_augment = True
     #desc += '-cifar10';             dataset = EasyDict(tfrecord_dir='cifar10')
     #desc += '-cifar100';            dataset = EasyDict(tfrecord_dir='cifar100')
     #desc += '-svhn';                dataset = EasyDict(tfrecord_dir='svhn')
-    #desc += '-mnist';               dataset = EasyDict(tfrecord_dir='mnist')
+    desc += '-mnist';               dataset = EasyDict(tfrecord_dir='mnist')
     #desc += '-mnistrgb';            dataset = EasyDict(tfrecord_dir='mnistrgb')
     #desc += '-syn1024rgb';          dataset = EasyDict(class_name='training.dataset.SyntheticDataset', resolution=1024, num_channels=3)
     #desc += '-lsun-airplane';       dataset = EasyDict(tfrecord_dir='lsun-airplane-100k');       train.mirror_augment = True
